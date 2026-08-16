@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bir Sürpriz 💗</title>
+<style>
+  html {
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 24px 0;
+    -webkit-overflow-scrolling: touch;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #f7c6ff, #d8d5ff);
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #4a2445;
+  }
+
+  .heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: rise 7s linear infinite;
+    opacity: .7;
+    pointer-events: none;
+  }
+  @keyframes rise {
+    from { transform: translateY(0) rotate(0deg); opacity: 0; }
+    15% { opacity: .8; }
+    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .card {
+    width: min(92%, 520px);
+    padding: 34px 28px;
+    background: rgba(255,255,255,.88);
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 18px 50px rgba(90,40,90,.18);
+    position: relative;
+    z-index: 2;
+  }
+
+  .emoji { font-size: 52px; }
+  h1 { margin: 10px 0; font-size: 32px; }
+  h2 { font-size: 24px; }
+  p {
+    font-size: 17px;
+    line-height: 1.65;
+    margin: 16px 0;
+  }
+
+  .quote {
+    background: #fff0f7;
+    border-radius: 18px;
+    padding: 16px;
+    margin: 20px 0;
+    font-size: 16px;
+  }
+
+  button {
+    border: 0;
+    border-radius: 999px;
+    padding: 13px 22px;
+    margin: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  }
+  .yes { background: #ff6fa8; color: white; }
+  .think { background: #ffd86b; color: #573f00; }
+  .no { background: #eee; color: #555; }
+
+  .hidden { display: none; }
+  .result {
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  .small {
+    font-size: 13px;
+    opacity: .7;
+  }
+</style>
+</head>
+<body>
+
+<div id="hearts"></div>
+
+<main class="card">
+  <div class="emoji">💌</div>
+
+  <section id="page1">
+    <h1>Sare...</h1>
+    <p>Sana söylemek istediğim küçük bir şey var. 🥹</p>
+    <button class="yes" onclick="nextPage()">Devam et 💗</button>
+  </section>
+
+  <section id="page2" class="hidden">
+    <h2>Bir süredir söylemek istediğim bir şey... 💕</h2>
+    <p>
+      Sare, ben senden hoşlanıyorum. ❤️<br>
+      Senin ne düşündüğünü bilmiyorum ama bunu içimde tutmak istemedim.
+    </p>
+    <p>
+      Yaşımızın küçük olduğunu düşünebilirsin ve buna tamamen saygı duyarım.
+      Ama bence güzel duyguların belirli bir yaşı yok. 🌸
+    </p>
+    <button class="yes" onclick="nextPage()">Bir şey daha var... 👀</button>
+  </section>
+
+  <section id="page3" class="hidden">
+    <h2>Biraz tarih, biraz cesaret 😄🇹🇷</h2>
+    <div class="quote">
+      19 Mayıs 1919'da başlayan büyük bir yolculuk,<br>
+      29 Ekim 1923'te Cumhuriyet ile taçlandı. 🇹🇷
+    </div>
+    <p>
+      Atatürk'ün bize bıraktığı en güzel şeylerden biri de
+      <strong>cesaret etmek ve doğru bildiğimiz şeyi söylemekti.</strong> ❤️
+    </p>
+    <div class="quote">
+      Küçük bir tarih notu: 🇹🇷<br>
+      <strong>19 Mayıs</strong> → Milli Mücadele'nin başlangıcı<br>
+      <strong>23 Nisan</strong> → TBMM'nin açılışı<br>
+      <strong>29 Ekim</strong> → Cumhuriyet'in ilanı
+    </div>
+    <p>
+      Ben de bugün kendi küçük cesaretimi gösteriyorum... 🥹💗<br><br>
+      Peki Sare,<br>
+      <strong>benimle bu küçük hikâyenin ilk sayfasını açar mısın?</strong>
+    </p>
+    <div class="quote">
+      🇹🇷 <strong>Biraz da Atatürk ve cesaret...</strong><br><br>
+      19 Mayıs 1919'da başlayan büyük mücadele,<br>
+      29 Ekim 1923'te Cumhuriyet'in ilanıyla taçlandı.<br><br>
+      Atatürk'ün bize bıraktığı en güzel miraslardan biri<br>
+      <strong>cesaret etmekti.</strong> ❤️<br><br>
+      Ve şimdi benim küçük cesaretim:<br>
+      <strong>Atamızın yenemediği aşk savaşını<br>
+      benimle birlikte kazanır mısın Sare?</strong> 🥹💗
+    </div>
+
+    <button class="yes" onclick="answer('yes')">EVET 💗</button>
+    <button class="think" onclick="answer('think')">DÜŞÜNMEM LAZIM 😳</button>
+    <button class="no" onclick="answer('no')">HAYIR 💔</button>
+    <div id="result" class="result"></div>
+  </section>
+
+  <p class="small">Cevabın ne olursa olsun, sana saygı duyacağım. ❤️</p>
+</main>
+
+<script>
+function nextPage() {
+  const pages = [
+    document.getElementById("page1"),
+    document.getElementById("page2"),
+    document.getElementById("page3")
+  ];
+  const current = pages.findIndex(p => !p.classList.contains("hidden"));
+  if (current >= 0) pages[current].classList.add("hidden");
+  if (current + 1 < pages.length) pages[current + 1].classList.remove("hidden");
+}
+
+function answer(type) {
+  const result = document.getElementById("result");
+
+  if (type === "yes") {
+    result.innerHTML = "AAAAA 😭💗 O ZAMAN BİZİM HİKÂYE BAŞLIYOR! 💕✨";
+    for (let i = 0; i < 25; i++) createHeart();
+  } else if (type === "think") {
+    result.innerHTML = "Tamam 😳 Acele yok. Düşün, ben cevabına saygı duyacağım. 🌸";
+  } else {
+    result.innerHTML = "Tamam Sare. ❤️ Kararına saygı duyuyorum. Yine de bunu sana söyleyebildiğim için mutluyum.";
+  }
+}
+
+function createHeart() {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.textContent = ["💗","💕","💖","💘","🌸"][Math.floor(Math.random()*5)];
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.animationDuration = (4 + Math.random() * 4) + "s";
+  h.style.fontSize = (16 + Math.random() * 22) + "px";
+  document.getElementById("hearts").appendChild(h);
+  setTimeout(() => h.remove(), 8000);
+}
+
+setInterval(createHeart, 650);
+</script>
+
+</body>
+</html>
